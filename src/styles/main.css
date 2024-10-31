@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+section {
+    background: black;
+    width: 100vw;
+    height: 100svh;
+    place-content: center;
+    display: grid;
+}
+
+.boxes {
+    animation: spin 2s linear infinite;
+    background: linear-gradient(to bottom, blue, blue) padding-box, conic-gradient(from var(--gradient-angle), yellow, red, purple, blue, aqua, brown, gold ) border-box;
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    border: 5px solid transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.boxes::before {
+    background: #000;
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    border-radius: 7px;
+}
+.boxes::after {
+    animation: spin 2s linear infinite;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from var(--gradient-angle), yellow, red, purple, blue, aqua, brown, gold );
+    border-radius: 7px;
+    filter: blur(50px);
+    z-index: 1;
+    
+}
+/** THIS PROPERTI WILL SAID TO CSS THIS AN ANGLE */
+@property --gradient-angle{
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+}
+
+@keyframes spin {
+    to {
+        --gradient-angle: 360deg;
+    }
+}
